@@ -4,9 +4,9 @@ sidebar<-dashboardSidebar(
     menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
     #Display graphs
     menuItem(
-      "Charts", icon = icon("analytics"),
+      "Charts", icon = icon("chart-area"),
       menuSubItem("Bars", tabName = "bars",icon = icon("chart-bar")),
-      menuSubItem("Line", tabName = "line", icon = icon("chart-line-down"))
+      menuSubItem("Line", tabName = "line", icon = icon("chart-line"))
     ),
     #Display tabular representation of the data
     menuItem("Tables", tabName = "table",icon = icon("table")),
