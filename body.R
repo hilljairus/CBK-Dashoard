@@ -1,12 +1,19 @@
 body<-dashboardBody(
   tabItems(
-    tabItem(tabName = "dashboard",
-            h2("Create Dashboard")),
+    tabItem(tabName = "dashboard", 
+            fluidRow(
+             infoBox("GDP","1.2B", color = "black", fill=TRUE, icon = icon("briefcase")),
+             infoBox("Economoic Growth", "6%", color = "lime", fill = TRUE, icon = icon("building")),
+             infoBox("Inflation", "10%", color = "red", fill = TRUE, icon = icon("chart-line"))
+            )),
     tabItem(tabName = "bars",
-            h2("Add bar graphs")),
+            tab2("bars")
+            ),
     tabItem(tabName = "line",
-            h2("Add line graphs")),
+            h2("Add line graphs")
+            ),
     tabItem(tabName = "table",
-            h2("Add tabularized data"))
+            h2("Add tabularized data")
+            )
   )
 )
