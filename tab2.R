@@ -1,5 +1,4 @@
 #tab2 mudule UI
-
 tab2UI<-function(id){
   ns<-NS(id)
   fluidRow(
@@ -17,8 +16,14 @@ tab2UI<-function(id){
 #tab2 server module
 tab2Server<-function(input,output,session){
   output$plot_21<-renderPlotly({
+    data<-Knoema('ixajdmb', list('timerange' = '2010M1-2020M12', 'Indicator' = 'KN.C1;KN.C7', 'Commodity' = 'KN.K22'), host='kenya.opendataforafrica.org')
+    Q19<-data[["Q - Consumer Price Index (Index February 2009=100) - Broad Commodity Group (Total)"]]
+    
     fig<-autoplot(Q19)
     ggplotly(fig)
   })
   
 }
+
+
+

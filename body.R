@@ -1,3 +1,4 @@
+source('tab2.R')
 body<-dashboardBody(
   tabItems(
     tabItem(tabName = "dashboard", 
@@ -7,7 +8,7 @@ body<-dashboardBody(
              infoBox("Inflation", "10%", color = "red", fill = TRUE, icon = icon("chart-line"))
             )),
     tabItem(tabName = "bars",
-            tab2("bars")
+            tab2UI("bars")
             ),
     tabItem(tabName = "line",
             h2("Add line graphs")

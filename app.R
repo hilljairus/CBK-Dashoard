@@ -6,10 +6,12 @@ library(tidyverse)
 library(forecast)
 library(ggplot2)
 library(plotly)
+library(Knoema)
 #Source files
 source("header.R")
 source("sidebar.R")
 source("body.R")
+source('tab2.R')
 ##Layout
 ui <- dashboardPage(skin="purple",
   dashboardHeader(title = "Something to build on",
