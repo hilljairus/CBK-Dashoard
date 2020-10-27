@@ -3,7 +3,7 @@ library(shiny)
 library(shinydashboard)
 library(shinythemes)
 library(tidyverse)
-library(forecast)
+library(ggfortify)
 library(ggplot2)
 library(plotly)
 library(Knoema)
@@ -14,7 +14,7 @@ source("body.R")
 source('tab2.R')
 ##Layout
 ui <- dashboardPage(skin="purple",
-  dashboardHeader(title = "Something to build on",
+  dashboardHeader(title = title,
                   headerUI("notification")),
   sidebar,
   body

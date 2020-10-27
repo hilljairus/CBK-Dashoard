@@ -1,5 +1,8 @@
 source('tab2.R')
 body<-dashboardBody(
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.min.css")
+  ),
   tabItems(
     tabItem(tabName = "dashboard", 
             fluidRow(

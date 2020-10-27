@@ -5,7 +5,7 @@ sidebar<-dashboardSidebar(
     #Display graphs
     menuItem(
       "Charts", icon = icon("chart-area"),
-      menuSubItem("Bars", tabName = "bars",icon = icon("chart-bar")),
+      menuSubItem("CPI", tabName = "bars",icon = icon("chart-bar")),
       menuSubItem("Line", tabName = "line", icon = icon("chart-line"))
     ),
     #Display tabular representation of the data

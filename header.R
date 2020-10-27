@@ -1,3 +1,6 @@
+#Title format
+title<-tagList(tags$img(src="kenya.jpg", height='50',width='50'),"E. Indicaors")
+
 #Modularized header
 #Module UI
 headerUI<-function(header){
