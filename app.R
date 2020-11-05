@@ -1,7 +1,8 @@
 #LIbraries
 library(shiny)
 library(shinydashboard)
-library(shinythemes)
+library(shinydashboardPlus)
+library(dashboardthemes)
 library(tidyverse)
 library(ggfortify)
 library(ggplot2)
@@ -13,8 +14,9 @@ source("sidebar.R")
 source("body.R")
 source('tab2.R')
 ##Layout
-ui <- dashboardPage(skin="purple",
-  dashboardHeader(title = title,
+ui <- dashboardPagePlus(skin="purple",
+                        collapse_sidebar = TRUE,
+  dashboardHeaderPlus(title = title,
                   headerUI("notification")),
   sidebar,
   body
@@ -23,6 +25,8 @@ ui <- dashboardPage(skin="purple",
 server <- function(input, output, server) {
   callModule(headerServer,"notification")#Notification module
   callModule(tab2Server,"bars") #Tab 2 module
+  # Changing theme ----------------------------------------------------------
+  callModule(module = serverChangeTheme, id = "moduleChangeTheme")
 }
 
 shinyApp(ui, server)

@@ -1,4 +1,5 @@
 sidebar<-dashboardSidebar(
+  
   sidebarMenu(id="tabs",
     #Show summary of data loaded
     menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
@@ -11,6 +12,8 @@ sidebar<-dashboardSidebar(
     #Display tabular representation of the data
     menuItem("Tables", tabName = "table",icon = icon("table")),
     
+    #change themes - https://github.com/nik01010/dashboardThemeSwitcher
+    menuItem("Themes",tabName = "theme", icon = icon("gear")),
     #Redirect to datasource i.e CBK website
     menuItem("Source",icon = icon("external-link"), href = "https://www.centralbank.go.ke/")
   )

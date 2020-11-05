@@ -1,8 +1,11 @@
 source('tab2.R')
+source('moduleChangeTheme.R')
 body<-dashboardBody(
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.min.css")
   ),
+  # Custom theme ------------------------------------------------------------
+  uiChangeThemeOutput(),
   tabItems(
     tabItem(tabName = "dashboard", 
             fluidRow(
@@ -18,6 +21,14 @@ body<-dashboardBody(
             ),
     tabItem(tabName = "table",
             h2("Add tabularized data")
+            ),
+    tabItem(tabName = "theme",
+            fluidRow(
+              column(12,
+                     # Theme drop-down ---------------------------------------------------------
+                     uiChangeThemeDropdown()
+              )
+            )
             )
   )
 )
