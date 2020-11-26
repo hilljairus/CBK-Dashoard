@@ -6,25 +6,23 @@ body<-dashboardBody(
   ),
   # Custom theme ------------------------------------------------------------
   uiChangeThemeOutput(),
+  # menu items
   tabItems(
     tabItem(tabName = "dashboard", 
             fluidRow(
-             infoBox("GDP","1.2B", color = "black", fill=TRUE, icon = icon("briefcase")),
-             infoBox("Economoic Growth", "6%", color = "lime", fill = TRUE, icon = icon("building")),
-             infoBox("Inflation", "10%", color = "red", fill = TRUE, icon = icon("chart-line"))
-            )),
-    tabItem(tabName = "bars",
-            tab2UI("bars")
+             infoBox("GDP","1.2B", icon = icon("briefcase")),
+             infoBox("Economoic Growth", "6%", icon = icon("building")),
+             infoBox("Inflation", "10%", icon = icon("chart-line"))
             ),
-    tabItem(tabName = "line",
-            h2("Add line graphs")
+            contentUI("content")
             ),
+    
     tabItem(tabName = "table",
             h2("Add tabularized data")
             ),
     tabItem(tabName = "theme",
             fluidRow(
-              column(12,
+              column(12, offset =4 ,
                      # Theme drop-down ---------------------------------------------------------
                      uiChangeThemeDropdown()
               )

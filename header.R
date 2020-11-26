@@ -1,5 +1,7 @@
 #Title format
-title<-tagList(tags$img(src="kenya.jpg", height='50',width='50'),"E. Indicaors")
+title<-tags$a(href="https://google.com" ,
+              tags$img(src="dashboard-icon.jpg", class="img-circle", height='50'),
+              "EI")
 
 #Modularized header
 #Module UI

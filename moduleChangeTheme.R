@@ -1,7 +1,8 @@
+#  from https://github.com/nik01010/dashboardThemeSwitcher
 # Ui functions ------------------------------------------------------------
-uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme = "grey_light")
+uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme = "default")
 {
-  changeThemeChoices <- c(
+  changeThemeChoices <- c("Default"="default",
     "Blue gradient" = "blue_gradient",
     "Flat Red" = "flat_red",
     "Grey light" = "grey_light",
@@ -16,8 +17,8 @@ uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme =
     selectizeInput(
       inputId = ns("dbxChangeTheme"),
       label = dropDownLabel,
-      choices = changeThemeChoices,
-      selected = defaultTheme
+      choices = changeThemeChoices
+      #selected = defaultTheme
     )
   )
   
@@ -40,10 +41,12 @@ serverChangeTheme <- function(input, output, session)
 {
   observeEvent(
     input$dbxChangeTheme, 
-    {
       output$uiChangeTheme <- renderUI({
-        shinyDashboardThemes(theme = input$dbxChangeTheme)
+        if(input$dbxChangeTheme!="default"){
+        shinyDashboardThemes(theme = input$dbxChangeTheme)}
+        else {NULL}
       })
-    }
+    
+      
   )
 }
