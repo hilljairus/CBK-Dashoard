@@ -46,3 +46,13 @@
   background-color: #1f2936!important;
   
 }
+
+/* override psedo elememt for box header. makes header elements align to the end properly*/
+.box-header:before, .box-header:after {content:none !important;}
+
+.selectize-input.full {
+    background-color: #232e3c;
+}
+.selectize-input {
+  color: white;
+}

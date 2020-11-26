@@ -14,7 +14,8 @@ body<-dashboardBody(
              infoBox("Economoic Growth", "6%", icon = icon("building")),
              infoBox("Inflation", "10%", icon = icon("chart-line"))
             ),
-            contentUI("content")
+            contentUI("content"),
+            fluidRow(myBox(title="mybox", my_input=selector,width=12))
             ),
     
     tabItem(tabName = "table",

@@ -1,4 +1,6 @@
+source("helpers.R")
 #tab2 mudule UI
+selector<-selectInput("select",NULL, c("a","b","c"))
 contentUI<-function(id){
   ns<-NS(id)
   fluidRow(
@@ -10,6 +12,7 @@ contentUI<-function(id){
         title = "Consumer Price Indices",width = 6, solidHeader = FALSE,
         collapsible = FALSE
     )
+
   )
 }
 
