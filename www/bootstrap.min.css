@@ -24,12 +24,15 @@
 .box {
   border-color: transparent;
   background-color: #232e3c;
-  color: inherit;
+
   background-clip: border-box;
   border: 1px solid;
   border-radius: 3px;
   border-color: #232e3c;
-}                            
+  color: #2967e4;
+} 
+
+.box-title {color: #f4f6fa;}
 
 /* sidebar display*/
 .skin-purple .left-side, .skin-purple .main-sidebar, .skin-purple .wrapper {
@@ -50,9 +53,18 @@
 /* override psedo elememt for box header. makes header elements align to the end properly*/
 .box-header:before, .box-header:after {content:none !important;}
 
+
+/* select input on box background color*/
 .selectize-input.full {
     background-color: #232e3c;
 }
+/* change color of select input placeholder*/
 .selectize-input {
-  color: white;
+  color: #f4f6fa;
 }
+
+
+
+
+
+
