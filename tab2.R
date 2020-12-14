@@ -2,7 +2,23 @@ library(billboarder)
 source("helpers.R")
 source("data.R")
 
-#tab2 mudule UI
+#--------------InfoBox
+infoboxUI<-function(id){
+  ns<-NS(id)
+  fluidRow(
+    infoBox("GDP","1.2B", icon = icon("briefcase")),
+    infoBox("Economoic Growth", "6%", icon = icon("building")),
+    infoBoxOutput(ns("inflbox"))
+  )
+}
+
+infoboxServer<-function(input,output,session,infl){
+  output$inflbox<-renderInfoBox({
+    infoBox("Inflation", infl , icon = icon("chart-line"))
+  })
+}
+
+#--------------Inflation and Forex Exchange rates mudule UI
 selector<-selectInput("select",NULL, c("a","b","c"))
 contentUI<-function(id){
   ns<-NS(id)
@@ -11,22 +27,36 @@ contentUI<-function(id){
         title = "Inflation Rates",width = 6, solidHeader = FALSE,
         collapsible = FALSE
     ),
-    box(plotlyOutput(ns("plot_22")),
-        title = "Consumer Price Indices",width = 6, solidHeader = FALSE,
+    box(billboarderOutput(ns("plot_22")),
+        title = " End of Month Mean Exchange rate of Kenya Shillings ",width = 6, solidHeader = FALSE,
         collapsible = FALSE
     )
 
   )
 }
 
-#-------------------tab2 server module
+
+
+#---------------Inflation and Forex Exchange rates server module
 contentServer<-function(input,output,session){
    output$plot_21<-renderBillboarder({
-     
      b1
+   })
+   output$plot_22<-renderBillboarder({
+     b2
    })
 
 }
 
+#--------------County map UI
+countiesUI<-function(id){
+  ns<-NS(id)
+  fluidRow(
+    myBox(leafletOutput(ns("map")),title="Revenue Allocation", my_input=selector,width=12)
+  )
+}
 
-
+#--------------County map Server
+countiesServer<-function(input,output,session){
+  output$map<-renderLeaflet(mymap)
+}

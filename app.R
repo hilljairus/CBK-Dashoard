@@ -1,20 +1,21 @@
-#LIbraries
+#---------LIbraries
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
 library(dashboardthemes)
-#library(shinyjs)
+library(leaflet)
 library(tidyverse)
 #library(ggfortify)
 library(ggplot2)
-library(plotly)
+#library(plotly)
 library(billboarder)
 #library(Knoema)
-#Source files
+#---------Source files
 source("header.R")
 source("sidebar.R")
 source("body.R")
 source('tab2.R')
+source("data.R")
 ##Layout
 ui <- dashboardPagePlus(skin = "purple",
                         collapse_sidebar = TRUE,
@@ -26,7 +27,9 @@ ui <- dashboardPagePlus(skin = "purple",
 
 server <- function(input, output, server) {
   callModule(headerServer,"notification")#Notification module
+  callModule(infoboxServer,"infos",infl=last_month_inf)
   callModule(contentServer,"content") #Tab 2 module
+  callModule(countiesServer,"maps")
   # Changing theme ----------------------------------------------------------
   callModule(module = serverChangeTheme, id = "moduleChangeTheme")
   

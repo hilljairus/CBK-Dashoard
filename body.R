@@ -9,14 +9,9 @@ body<-dashboardBody(
   # menu items
   tabItems(
     tabItem(tabName = "dashboard", 
-            fluidRow(
-             infoBox("GDP","1.2B", icon = icon("briefcase")),
-             infoBox("Economoic Growth", "6%", icon = icon("building")),
-             infoBox("Inflation", "10%", icon = icon("chart-line"))
-            ),
+            infoboxUI("infos"),
             contentUI("content"),
-            fluidRow(myBox(title="mybox", my_input=selector,width=12)
-                     )
+            countiesUI("maps")
             ),
     
     tabItem(tabName = "table",
