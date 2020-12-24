@@ -1,0 +1,70 @@
+/*main panel background-color */
+.content-wrapper, .right-side {
+    background-color: #1f2936;
+    color: #f4f6fa;
+}  
+
+
+/* Header font */
+.main-header .logo {
+  font-family: var(--tblr-font-sans-serif);
+  font-weight: bold;
+  font-size: 32px;
+  
+}
+
+.skin-purple .main-header .logo {
+                              color: black;
+                              }
+/* Edit title logo hyperlink */
+.skin-purple .main-header .logo>a {
+                              color: white;
+                              }
+  
+.box {
+  border-color: transparent;
+  background-color: #232e3c;
+
+  background-clip: border-box;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #232e3c;
+  color: #2967e4;
+} 
+
+.box-title {color: #f4f6fa;}
+
+/* sidebar display*/
+.skin-purple .left-side, .skin-purple .main-sidebar, .skin-purple .wrapper {
+    background-color: #1f2936;
+    color: #f4f6fa;
+} 
+ /* change fill color for infoBox*/
+.info-box {
+  background: #232e3c;
+}
+
+/* override aqua color for the value box*/
+.bg-aqua {
+  background-color: #1f2936!important;
+  
+}
+
+/* override psedo elememt for box header. makes header elements align to the end properly*/
+.box-header:before, .box-header:after {content:none !important;}
+
+
+/* select input on box background color*/
+.selectize-input.full {
+    background-color: #232e3c;
+}
+/* change color of select input placeholder*/
+.selectize-input {
+  color: #f4f6fa;
+}
+
+
+
+
+
+
