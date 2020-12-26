@@ -26,4 +26,6 @@ Imports:
     stringr,
     dplyr,
     tibble,
-    magrittr
+    magrittr,
+    rgdal,
+    sp

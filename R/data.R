@@ -65,11 +65,42 @@ b2<-function(data=forex()){
     billboarder::bb_x_axis(tick=list(fit=TRUE, multiline=FALSE,autorotate= TRUE)) %>% 
     billboarder::bb_y_axis(label = list(text = "Kenyan Shillings", position = "outer-middle"))
 }
-mymap<-leaflet::leaflet() %>% 
+
+counties<-utils::read.csv(system.file("extdata","county_allocation.csv",package = 'Dashoard'),stringsAsFactors = FALSE)
+cnty<-rgdal::readOGR(system.file("extdata","cnty/County.shp",package = 'Dashoard'))
+cnty@data[["Name"]][21]<-"Muranga"
+cnty@data<-dplyr::left_join(cnty@data,counties, by=c("Name"="County"))
+
+bins<-c(1e8,2e8,3e8,4e8,5e8,6e8,7e8)
+pal <- leaflet::colorBin("Blues",domain=cnty@data$Yr2012.13, bins =bins, pretty = TRUE)
+
+mytext <- paste(
+  "County: ", cnty@data$Name,"<br/>", 
+  "Fin Year: ", "Yr2012.13", "<br/>", 
+  "Allocation: ", paste(floor(cnty@data$Yr2012.13/1e6),"M",sep=""), 
+  sep="") %>%
+  lapply(shiny::HTML)
+
+county_map<-leaflet::leaflet(cnty) %>% 
+  leaflet::setView(37.906193, -0.023559,  zoom =6) %>% 
   leaflet::addTiles() %>% 
-  leaflet::setView(37.906193, -0.023559,  zoom =6) %>% addMarkers(lng=35.30272, lat=-0.8015009)
-
-
-
+  leaflet::addPolygons(
+    fillColor = ~pal(Yr2012.13),
+    weight = 2,
+    opacity = 1,
+    color = "black",
+    dashArray = "3",
+    fillOpacity = 0.7,
+    highlight = leaflet::highlightOptions(
+      weight = 5,
+      color = "#666",
+      dashArray = "",
+      fillOpacity = 0.7,
+      bringToFront = TRUE),
+    label = mytext,
+    labelOptions = leaflet::labelOptions(
+      style = list("font-weight" = "normal", padding = "3px 8px"),
+      textsize = "15px",
+      direction = "auto"))
 
 

@@ -57,5 +57,5 @@ countiesUI<-function(id){
 
 #--------------County map Server
 countiesServer<-function(input,output,session){
-  output$map<-leaflet::renderLeaflet(mymap)
+  output$map<-leaflet::renderLeaflet(county_map)
 }
