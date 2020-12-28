@@ -1,6 +1,6 @@
 #Title format
 
-title<-function(){shiny::tags$a(href="https://google.com" ,
+title<-function(){shiny::tags$a(href="https://osdashboard.shinyapps.io/Dashboard/" ,
               shiny::tags$img(src="www/dashboard-icon.jpg", class="img-circle", height='50'),
               "EI")}
 

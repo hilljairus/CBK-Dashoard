@@ -67,12 +67,12 @@ b2<-function(data=forex()){
 }
 
 counties<-utils::read.csv(system.file("extdata","county_allocation.csv",package = 'Dashoard'),stringsAsFactors = FALSE)
-cnty<-rgdal::readOGR(system.file("extdata","cnty/County.shp",package = 'Dashoard'))
+cnty<-rgdal::readOGR(system.file("extdata","cnty/County.shp",package = 'Dashoard'),verbose = FALSE)
 cnty@data[["Name"]][21]<-"Muranga"
 cnty@data<-dplyr::left_join(cnty@data,counties, by=c("Name"="County"))
 
-bins<-c(1e8,2e8,3e8,4e8,5e8,6e8,7e8)
-pal <- leaflet::colorBin("Blues",domain=cnty@data$Yr2012.13, bins =bins, pretty = TRUE)
+#bins<-c(1e8,2e8,3e8,4e8,5e8,6e8,7e8)
+pal <- leaflet::colorQuantile("Blues",domain=cnty@data$Yr2012.13, n=8)
 
 mytext <- paste(
   "County: ", cnty@data$Name,"<br/>", 

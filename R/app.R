@@ -1,17 +1,16 @@
-
 #' @import shiny
 #' @import shinydashboard
 
-
+#' @export
 myApp<-function(){
   ui <- shinydashboardPlus::dashboardPagePlus(skin = "purple",
-                          collapse_sidebar = TRUE,
-                          dashboardHeader(title = title(),
-                                          headerUI("notification")),
-                          sidebar(),
-                          body()
+                                              collapse_sidebar = TRUE,
+                                              dashboardHeader(title = title(),
+                                                              headerUI("notification")),
+                                              sidebar(),
+                                              body()
   )
-
+  
   server <- function(input, output, server) {
     callModule(headerServer,"notification")#Notification module
     callModule(infoboxServer,"infos",infl=inflation()$last)
@@ -24,6 +23,3 @@ myApp<-function(){
   
   shinyApp(ui, server)
 }
-
-
-

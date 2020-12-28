@@ -1,0 +1,10 @@
+name: Dashboard
+title: Dashboard
+username:
+account: osdashboard
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3430766
+bundleId: 4032492
+url: https://osdashboard.shinyapps.io/Dashboard/
+when: 1609067555.05896

@@ -1,0 +1,12 @@
+name: OSdashboard
+title: OSdashboard
+username:
+account: osdashboard
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3430793
+bundleId: 4032218
+url: https://osdashboard.shinyapps.io/OSdashboard/
+when: 1609058697.46536
+asMultiple: FALSE
+asStatic: FALSE
