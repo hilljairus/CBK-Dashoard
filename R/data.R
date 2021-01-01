@@ -83,7 +83,7 @@ mytext <- paste(
 
 county_map<-leaflet::leaflet(cnty) %>% 
   leaflet::setView(37.906193, -0.023559,  zoom =6) %>% 
-  leaflet::addTiles() %>% 
+  #leaflet::addTiles() %>% 
   leaflet::addPolygons(
     fillColor = ~pal(Yr2012.13),
     weight = 2,
