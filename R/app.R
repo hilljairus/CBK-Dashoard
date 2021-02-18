@@ -17,7 +17,7 @@ myApp<-function(){
     callModule(contentServer,"content") #Tab 2 module
     callModule(countiesServer,"maps")
     # Changing theme ----------------------------------------------------------
-    callModule(module = serverChangeTheme, id = "moduleChangeTheme")
+    #callModule(module = serverChangeTheme, id = "moduleChangeTheme")
     
   }
   

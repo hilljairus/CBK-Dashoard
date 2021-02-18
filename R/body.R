@@ -5,11 +5,12 @@
 # source('tab2.R')
 # source('moduleChangeTheme.R')
 body<-function() {dashboardBody(
+  shinybusy::add_busy_spinner(color="#F4F6F7",spin = "fading-circle"),
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "www/bootstrap.min.css")
   ),
   # Custom theme ------------------------------------------------------------
-  uiChangeThemeOutput(),
+  #uiChangeThemeOutput(),
   # menu items
   tabItems(
     tabItem(tabName = "dashboard", 
@@ -20,15 +21,15 @@ body<-function() {dashboardBody(
     
     tabItem(tabName = "table",
             h2("Add tabularized data")
-            ),
-    tabItem(tabName = "theme",
-            fluidRow(
-              column(12, offset =4 ,
-                     # Theme drop-down ---------------------------------------------------------
-                     uiChangeThemeDropdown()
-              )
             )
-            )
+    # tabItem(tabName = "theme",
+    #         fluidRow(
+    #           column(12, offset =4 ,
+    #                  # Theme drop-down ---------------------------------------------------------
+    #                  uiChangeThemeDropdown()
+    #           )
+    #         )
+    #         )
   )
 )
 }
